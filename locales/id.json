@@ -1,0 +1,326 @@
+{
+  "navbar": {
+    "brand": {
+      "title": "LPK Bojonegoro",
+      "subtitle": "Mendunia"
+    },
+    "links": {
+      "tentang": "Tentang",
+      "program": "Program",
+      "galeri": "Galeri",
+      "fasilitas": "Fasilitas",
+      "testimoni": "Testimoni",
+      "faq": "FAQ",
+      "artikel": "Artikel",
+      "kontak": "Kontak"
+    },
+    "language": "Bahasa",
+    "daftar": "Daftar",
+    "daftarSekarang": "Daftar Sekarang",
+    "modeTerang": "Mode Terang",
+    "modeGelap": "Mode Gelap"
+  },
+  "hero": {
+    "badge": {
+      "daftarSekarang": "Daftar Sekarang",
+      "mulaiPerjalananmu": "Mulai Perjalananmu"
+    },
+    "heading": {
+      "siapBerangkat": "Siap Berangkat",
+      "karirKerjaDiJepang": "Karir dan Kerja Di Jepang"
+    },
+    "description": "LPK Bojonegoro Mendunia fokus pada pelatihan bahasa, budaya, dan skill teknis untuk memastikan Anda siap bekerja secara profesional dan meraih sukses di perusahaan Jepang.",
+    "buttons": {
+      "mulaiPerjalananmu": "Mulai Perjalananmu",
+      "konsultasiGratis": "Konsultasi Gratis"
+    }
+  },
+  "about": {
+    "header": {
+      "siapaKami": "Siapa Kami",
+      "tentangKami": "Tentang Kami"
+    },
+    "description": [
+      "LPK profesional dengan komitmen tinggi membantu tenaga kerja Indonesia meraih peluang karir cemerlang di Jepang.",
+      "Didirikan dengan visi untuk membantu tenaga kerja Indonesia meraih kesempatan kerja di Jepang. Kami memiliki rekam jejak yang terbukti dalam mendampingi peserta dari proses seleksi hingga penempatan di Jepang.",
+      "Dengan pengalaman lebih dari 10 tahun, kami telah berhasil memberangkatkan lebih dari 500 alumni ke berbagai kota di Jepang dengan program magang dan kerja yang terakreditasi."
+    ],
+    "stats": {
+      "alumniBerangkat": "Alumni Berangkat",
+      "tahunPengalaman": "Tahun Pengalaman",
+      "mitraPerusahaan": "Mitra Perusahaan"
+    },
+    "keunggulan": {
+      "title": "Mengapa Memilih Kami?",
+      "instrukturPengalaman": {
+        "title": "Instruktur Berpengalaman",
+        "desc": "Tim instruktur kami terdiri dari alumni yang sukses bekerja di Jepang dengan pengalaman lebih dari 5 tahun."
+      },
+      "fasilitasLengkap": {
+        "title": "Fasilitas Lengkap",
+        "desc": "Fasilitas pelatihan yang memadai dan lengkap untuk mendukung proses pembelajaran secara optimal."
+      },
+      "programTerstruktur": {
+        "title": "Program Terstruktur",
+        "desc": "Program pelatihan yang dirancang secara sistematis sesuai standar magang di perusahaan Jepang."
+      },
+      "bimbinganIntensif": {
+        "title": "Bimbingan Intensif",
+        "desc": "Pendampingan penuh mulai dari proses seleksi hingga peserta resmi berangkat ke Jepang."
+      }
+    }
+  },
+  "programs": {
+    "header": {
+      "title": "Program Pelatihan",
+      "subtitle": "Pilih program yang sesuai dengan minat dan kemampuan Anda untuk bekerja di Jepang"
+    },
+    "details": {
+      "duration": "Durasi",
+      "category": "Kategori",
+      "persyaratan": "Persyaratan:",
+      "usia": "Usia",
+      "pendidikan": "Pendidikan"
+    },
+    "cta": "Lihat detail",
+    "list": [
+      {
+        "title": "Program Gakkou",
+        "desc": "Program pelatihan untuk bekerja di sekolah-sekolah di Jepang dengan fokus pada pendidikan dan pengasuhan anak.",
+        "duration": "12 bulan",
+        "category": "Gakkou",
+        "usia": "Usia 18-30 tahun",
+        "pendidikan": "Lulusan SMA/SMK sederajat"
+      },
+      {
+        "title": "Program Tokutei Ginou",
+        "desc": "Program pelatihan keahlian khusus untuk berbagai sektor industri di Jepang dengan peluang karir jangka panjang.",
+        "duration": "18 bulan",
+        "category": "Tokutei Ginou",
+        "usia": "Usia 18-35 tahun",
+        "pendidikan": "Lulusan SMA/SMK sederajat"
+      },
+      {
+        "title": "Program Care Worker",
+        "desc": "Program pelatihan untuk bekerja di bidang perawatan lansia di Jepang dengan sertifikasi resmi.",
+        "duration": "15 bulan",
+        "category": "Care Worker",
+        "usia": "Usia 18-30 tahun",
+        "pendidikan": "Lulusan SMA/SMK sederajat"
+      },
+      {
+        "title": "Program Hospitality",
+        "desc": "Program pelatihan untuk bekerja di industri perhotelan dan pariwisata di Jepang.",
+        "duration": "10 bulan",
+        "category": "Hospitality",
+        "usia": "Usia 18-28 tahun",
+        "pendidikan": "Lulusan SMA/SMK sederajat"
+      }
+    ]
+  },
+  "gallery": {
+    "header": {
+      "title": "Galeri Dokumentasi",
+      "subtitle": "Momen berharga kegiatan pelatihan, fasilitas yang kami sediakan, hingga alumni yang sukses meraih mimpinya."
+    },
+    "photos": [
+      {
+        "label": "Kegiatan Pelatihan"
+      },
+      {
+        "label": "Fasilitas Kelas"
+      },
+      {
+        "label": "Asrama Peserta"
+      },
+      {
+        "label": "Kelulusan Alumni"
+      },
+      {
+        "label": "Kegiatan Lapangan"
+      },
+      {
+        "label": "Wisuda & Sertifikasi"
+      }
+    ]
+  },
+  "facilities": {
+    "header": {
+      "title": "Fasilitas Kami",
+      "subtitle": "Fasilitas Pelatihan",
+      "description": "Kami menyediakan fasilitas lengkap dan modern untuk memastikan kenyamanan serta efektivitas proses pelatihan Anda."
+    },
+    "list": [
+      {
+        "title": "Ruang Kelas Modern",
+        "desc": "Ruang kelas berAC dengan peralatan multimedia lengkap dan koneksi internet cepat."
+      },
+      {
+        "title": "Laboratorium Bahasa",
+        "desc": "Lab bahasa dengan headset individual dan software pembelajaran bahasa Jepang terkini."
+      },
+      {
+        "title": "Perpustakaan",
+        "desc": "Koleksi buku dan referensi lengkap tentang Jepang, bahasa, dan budayanya."
+      },
+      {
+        "title": "Asrama",
+        "desc": "Asrama nyaman dan aman untuk peserta yang berasal dari luar kota Bojonegoro."
+      },
+      {
+        "title": "Kantin",
+        "desc": "Kantin dengan menu sehat dan bergizi untuk mendukung stamina peserta selama pelatihan."
+      },
+      {
+        "title": "Aula Serbaguna",
+        "desc": "Aula luas untuk simulasi wawancara, kegiatan kelompok, dan presentasi."
+      }
+    ]
+  },
+  "testimonials": {
+    "header": {
+      "title": "Kata Mereka",
+      "subtitle": "Testimoni Alumni",
+      "description": "Pengalaman alumni kami yang berhasil bekerja di Jepang"
+    },
+    "card": {
+      "program": "Program",
+      "location": "Lokasi"
+    }
+  },
+  "faq": {
+    "header": {
+      "title": "Pertanyaan yang Sering Diajukan",
+      "subtitle": "Temukan jawaban untuk pertanyaan umum mengenai program pelatihan dan pendaftaran"
+    },
+    "questions": [
+      {
+        "q": "Apa saja persyaratan untuk mendaftar program pelatihan?",
+        "a": "Persyaratan umum meliputi: WNI usia 18-30 tahun, minimal lulusan SMA/SMK sederajat, sehat jasmani dan rohani, tidak memiliki catatan kriminal, serta lulus seleksi administrasi dan tes yang diadakan oleh LPK."
+      },
+      {
+        "q": "Berapa lama durasi pelatihan?",
+        "a": "Durasi pelatihan bervariasi tergantung program yang dipilih, umumnya berkisar antara 6 bulan hingga 1 tahun sebelum keberangkatan ke Jepang. Setelah berada di Jepang, peserta akan menjalani program magang selama 3 tahun."
+      },
+      {
+        "q": "Apakah ada jaminan kerja setelah lulus pelatihan?",
+        "a": "LPK Bojonegoro Mendunia memiliki jaringan mitra perusahaan di Jepang. Kami berupaya menyalurkan seluruh lulusan yang memenuhi syarat ke perusahaan mitra kami di Jepang. Namun penempatan tetap bergantung pada hasil seleksi perusahaan tujuan."
+      },
+      {
+        "q": "Bagaimana sistem kerja setelah lulus pelatihan?",
+        "a": "Setelah menyelesaikan pelatihan dan lulus seleksi, peserta akan ditempatkan di perusahaan mitra di Jepang melalui program Technical Intern Training atau Specified Skilled Worker sesuai bidang yang dipilih."
+      },
+      {
+        "q": "Berapa biaya pendaftaran untuk peserta pelatihan?",
+        "a": "Biaya pendaftaran dan pelatihan bervariasi tergantung program. Silahkan hubungi kami langsung untuk informasi biaya terkini. Kami juga menyediakan informasi mengenai kemungkinan cicilan atau bantuan biaya untuk peserta yang memenuhi syarat."
+      },
+      {
+        "q": "Bagaimana proses pendaftaran?",
+        "a": "Proses pendaftaran dimulai dengan mengisi formulir online atau datang langsung ke kantor kami. Selanjutnya akan ada seleksi administrasi, tes kemampuan dasar, wawancara, dan pemeriksaan kesehatan. Peserta yang lulus semua tahap seleksi akan bergabung dalam program pelatihan."
+      }
+    ]
+  },
+  "contact": {
+    "header": {
+      "title": "Hubungi Kami",
+      "subtitle": "Mari Berdiskusi",
+      "description": "Siap membantu perjalanan karirmu ke Jepang. Hubungi kami untuk informasi lebih lanjut."
+    },
+    "info": {
+      "title": "Informasi Kontak",
+      "items": [
+        {
+          "label": "Telepon",
+          "icon": "Phone"
+        },
+        {
+          "label": "WhatsApp",
+          "icon": "MessageCircle"
+        },
+        {
+          "label": "Email",
+          "icon": "Mail"
+        },
+        {
+          "label": "Alamat",
+          "icon": "MapPin"
+        }
+      ]
+    },
+    "form": {
+      "title": "Kirim Pesan",
+      "fields": [
+        {
+          "label": "Nama Lengkap",
+          "placeholder": "Nama Anda",
+          "required": true
+        },
+        {
+          "label": "No. WhatsApp",
+          "placeholder": "08xx-xxxx-xxxx",
+          "required": true
+        },
+        {
+          "label": "Program yang Diminati",
+          "options": [
+            "",
+            "Program Gakkou",
+            "Program Tokutei Ginou",
+            "Program Care Worker",
+            "Program Hospitality"
+          ]
+        },
+        {
+          "label": "Pesan",
+          "placeholder": "Tuliskan pertanyaan atau pesan Anda...",
+          "textarea": true
+        }
+      ],
+      "submit": "Kirim Pesan"
+    },
+    "map": {
+      "title": "Lokasi Kami"
+    }
+  },
+  "footer": {
+    "brand": {
+      "title": "LPK Bojonegoro",
+      "subtitle": "Mendunia",
+      "description": "Lembaga Pelatihan Kerja profesional yang membantu tenaga kerja Indonesia meraih kesempatan kerja di Jepang sejak lebih dari 10 tahun."
+    },
+    "menu": {
+      "title": "Menu",
+      "links": [
+        "Tentang Kami",
+        "Program Pelatihan",
+        "Galeri",
+        "Fasilitas",
+        "Testimoni",
+        "FAQ"
+      ]
+    },
+    "programs": {
+      "title": "Program",
+      "links": [
+        "Program Sakkau",
+        "Program Teknikel Simes",
+        "Program Care Worker",
+        "Program Hospitality"
+      ]
+    },
+    "contact": {
+      "title": "Kontak",
+      "phone": "+62 812-3456-7890",
+      "email": "info@lpkbojonegoromendunia.com",
+      "address": "Jl. Mastumapel, Sringun, Sidobandung, Bojonegoro, Jawa Timur"
+    },
+    "bottom": {
+      "copyright": "LPK Bojonegoro Mendunia. Hak cipta dilindungi undang-undang.",
+      "privacy": "Kebijakan Privasi",
+      "terms": "Syarat & Ketentuan"
+    }
+  },
+  "whatsapp": {
+    "chat": "Chat WhatsApp"
+  }
+}

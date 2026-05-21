@@ -1,0 +1,326 @@
+{
+  "navbar": {
+    "brand": {
+      "title": "LPK Bojonegoro",
+      "subtitle": "Mendunia"
+    },
+    "links": {
+      "tentang": "About",
+      "program": "Program",
+      "galeri": "Gallery",
+      "fasilitas": "Facilities",
+      "testimoni": "Testimonials",
+      "faq": "FAQ",
+      "artikel": "Articles",
+      "kontak": "Contact"
+    },
+    "language": "Language",
+    "daftar": "Register",
+    "daftarSekarang": "Register Now",
+    "modeTerang": "Light Mode",
+    "modeGelap": "Dark Mode"
+  },
+  "hero": {
+    "badge": {
+      "daftarSekarang": "Register Now",
+      "mulaiPerjalananmu": "Start Your Journey"
+    },
+    "heading": {
+      "siapBerangkat": "Ready to Go",
+      "karirKerjaDiJepang": "Career and Work in Japan"
+    },
+    "description": "LPK Bojonegoro Mendunia focuses on language, culture, and technical skills training to ensure you are ready to work professionally and succeed in Japanese companies.",
+    "buttons": {
+      "mulaiPerjalananmu": "Start Your Journey",
+      "konsultasiGratis": "Free Consultation"
+    }
+  },
+  "about": {
+    "header": {
+      "siapaKami": "Who We Are",
+      "tentangKami": "About Us"
+    },
+    "description": [
+      "Professional LPK with high commitment helping Indonesian workforce achieve brilliant career opportunities in Japan.",
+      "Established with a vision to help Indonesian workforce achieve job opportunities in Japan. We have a proven track record in assisting participants from the selection process until placement in Japan.",
+      "With more than 10 years of experience, we have successfully sent more than 500 alumni to various cities in Japan through accredited internship and work programs."
+    ],
+    "stats": {
+      "alumniBerangkat": "Alumni Sent",
+      "tahunPengalaman": "Years of Experience",
+      "mitraPerusahaan": "Company Partners"
+    },
+    "keunggulan": {
+      "title": "Why Choose Us?",
+      "instrukturPengalaman": {
+        "title": "Experienced Instructors",
+        "desc": "Our instructor team consists of alumni who successfully worked in Japan with more than 5 years of experience."
+      },
+      "fasilitasLengkap": {
+        "title": "Complete Facilities",
+        "desc": "Adequate and complete training facilities to support the learning process optimally."
+      },
+      "programTerstruktur": {
+        "title": "Structured Program",
+        "desc": "Training program designed systematically according to internship standards in Japanese companies."
+      },
+      "bimbinganIntensif": {
+        "title": "Intensive Guidance",
+        "desc": "Full guidance from the selection process until participants officially depart for Japan."
+      }
+    }
+  },
+  "programs": {
+    "header": {
+      "title": "Training Programs",
+      "subtitle": "Choose a program that matches your interests and abilities to work in Japan"
+    },
+    "details": {
+      "duration": "Duration",
+      "category": "Category",
+      "persyaratan": "Requirements:",
+      "usia": "Age",
+      "pendidikan": "Education"
+    },
+    "cta": "View Details",
+    "list": [
+      {
+        "title": "Gakkou Program",
+        "desc": "Training program to work in schools in Japan with a focus on education and childcare.",
+        "duration": "12 months",
+        "category": "Gakkou",
+        "usia": "Age 18-30 years",
+        "pendidikan": "High School/Vocational School Graduate"
+      },
+      {
+        "title": "Tokutei Ginou Program",
+        "desc": "Special skills training program for various industrial sectors in Japan with long-term career opportunities.",
+        "duration": "18 months",
+        "category": "Tokutei Ginou",
+        "usia": "Age 18-35 years",
+        "pendidikan": "High School/Vocational School Graduate"
+      },
+      {
+        "title": "Care Worker Program",
+        "desc": "Training program to work in elderly care in Japan with official certification.",
+        "duration": "15 months",
+        "category": "Care Worker",
+        "usia": "Age 18-30 years",
+        "pendidikan": "High School/Vocational School Graduate"
+      },
+      {
+        "title": "Hospitality Program",
+        "desc": "Training program to work in the hotel and tourism industry in Japan.",
+        "duration": "10 months",
+        "category": "Hospitality",
+        "usia": "Age 18-28 years",
+        "pendidikan": "High School/Vocational School Graduate"
+      }
+    ]
+  },
+  "gallery": {
+    "header": {
+      "title": "Documentation Gallery",
+      "subtitle": "Precious moments of training activities, facilities we provide, to alumni who successfully achieve their dreams."
+    },
+    "photos": [
+      {
+        "label": "Training Activities"
+      },
+      {
+        "label": "Classroom Facilities"
+      },
+      {
+        "label": "Participant Dormitory"
+      },
+      {
+        "label": "Alumni Graduation"
+      },
+      {
+        "label": "Field Activities"
+      },
+      {
+        "label": "Graduation & Certification"
+      }
+    ]
+  },
+  "facilities": {
+    "header": {
+      "title": "Our Facilities",
+      "subtitle": "Training Facilities",
+      "description": "We provide complete and modern facilities to ensure comfort and effectiveness of your training process."
+    },
+    "list": [
+      {
+        "title": "Modern Classroom",
+        "desc": "Air-conditioned classroom with complete multimedia equipment and fast internet connection."
+      },
+      {
+        "title": "Language Laboratory",
+        "desc": "Language lab with individual headsets and latest Japanese language learning software."
+      },
+      {
+        "title": "Library",
+        "desc": "Complete collection of books and references about Japan, language, and culture."
+      },
+      {
+        "title": "Dormitory",
+        "desc": "Comfortable and safe dormitory for participants coming from outside Bojonegoro."
+      },
+      {
+        "title": "Cafeteria",
+        "desc": "Cafeteria with healthy and nutritious menus to support participant stamina during training."
+      },
+      {
+        "title": "Multipurpose Hall",
+        "desc": "Spacious hall for interview simulations, group activities, and presentations."
+      }
+    ]
+  },
+  "testimonials": {
+    "header": {
+      "title": "Their Words",
+      "subtitle": "Alumni Testimonials",
+      "description": "Experiences of our alumni who successfully worked in Japan"
+    },
+    "card": {
+      "program": "Program",
+      "location": "Location"
+    }
+  },
+  "faq": {
+    "header": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about training programs and registration"
+    },
+    "questions": [
+      {
+        "q": "What are the requirements to register for the training program?",
+        "a": "General requirements include: Indonesian citizen aged 18-30 years, minimum high school/vocational school graduate, physically and mentally healthy, no criminal record, and passing administrative selection and tests conducted by LPK."
+      },
+      {
+        "q": "How long is the training duration?",
+        "a": "Training duration varies depending on the chosen program, generally ranging from 6 months to 1 year before departure to Japan. After arriving in Japan, participants will undergo an internship program for 3 years."
+      },
+      {
+        "q": "Is there a job guarantee after completing the training?",
+        "a": "LPK Bojonegoro Mendunia has a network of partner companies in Japan. We strive to place all qualified graduates in our partner companies in Japan. However, placement still depends on the results of the target company's selection."
+      },
+      {
+        "q": "What is the work system after completing the training?",
+        "a": "After completing training and passing selection, participants will be placed in partner companies in Japan through the Technical Intern Training Program or Specified Skilled Worker according to the chosen field."
+      },
+      {
+        "q": "How much is the registration fee for training participants?",
+        "a": "Registration and training fees vary depending on the program. Please contact us directly for current fee information. We also provide information about possible installments or financial assistance for qualified participants."
+      },
+      {
+        "q": "How is the registration process?",
+        "a": "The registration process starts with filling out an online form or coming directly to our office. Next, there will be administrative selection, basic ability test, interview, and health check. Participants who pass all selection stages will join the training program."
+      }
+    ]
+  },
+  "contact": {
+    "header": {
+      "title": "Contact Us",
+      "subtitle": "Let's Discuss",
+      "description": "Ready to help your career journey to Japan. Contact us for more information."
+    },
+    "info": {
+      "title": "Contact Information",
+      "items": [
+        {
+          "label": "Phone",
+          "icon": "Phone"
+        },
+        {
+          "label": "WhatsApp",
+          "icon": "MessageCircle"
+        },
+        {
+          "label": "Email",
+          "icon": "Mail"
+        },
+        {
+          "label": "Address",
+          "icon": "MapPin"
+        }
+      ]
+    },
+    "form": {
+      "title": "Send Message",
+      "fields": [
+        {
+          "label": "Full Name",
+          "placeholder": "Your Name",
+          "required": true
+        },
+        {
+          "label": "WhatsApp Number",
+          "placeholder": "08xx-xxxx-xxxx",
+          "required": true
+        },
+        {
+          "label": "Program of Interest",
+          "options": [
+            "",
+            "Gakkou Program",
+            "Tokutei Ginou Program",
+            "Care Worker Program",
+            "Hospitality Program"
+          ]
+        },
+        {
+          "label": "Message",
+          "placeholder": "Write your question or message...",
+          "textarea": true
+        }
+      ],
+      "submit": "Send Message"
+    },
+    "map": {
+      "title": "Our Location"
+    }
+  },
+  "footer": {
+    "brand": {
+      "title": "LPK Bojonegoro",
+      "subtitle": "Mendunia",
+      "description": "A professional job training institution that helps Indonesian workforce achieve job opportunities in Japan for more than 10 years."
+    },
+    "menu": {
+      "title": "Menu",
+      "links": [
+        "About Us",
+        "Training Programs",
+        "Gallery",
+        "Facilities",
+        "Testimonials",
+        "FAQ"
+      ]
+    },
+    "programs": {
+      "title": "Programs",
+      "links": [
+        "Sakkau Program",
+        "Teknikel Simes Program",
+        "Care Worker Program",
+        "Hospitality Program"
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "phone": "+62 812-3456-7890",
+      "email": "info@lpkbojonegoromendunia.com",
+      "address": "Jl. Mastumapel, Sringun, Sidobandung, Bojonegoro, Jawa Timur, Indonesia"
+    },
+    "bottom": {
+      "copyright": "LPK Bojonegoro Mendunia. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions"
+    }
+  },
+  "whatsapp": {
+    "chat": "Chat WhatsApp"
+  }
+}
