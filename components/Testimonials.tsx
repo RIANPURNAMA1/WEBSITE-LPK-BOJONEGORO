@@ -3,47 +3,20 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useTranslation } from "@/utils/i18n";
 
-const testimonials = [
-  {
-    name: "Dewi Lestari",
-    program: "Program Pertanian (Sakkau)",
-    location: "Ibaraki, Jepang",
-    text: "Pelatihan di LPK Bojonegoro Mendunia sangat membantu. Saya berhasil berangkat ke Jepang dan kini bekerja dengan penghasilan yang jauh lebih baik. Terima kasih LPK!",
-    stars: 5,
-    avatar: "https://i.pravatar.cc/150?img=47",
-  },
-  {
-    name: "Rudi Hartono",
-    program: "Program Teknikel Simes",
-    location: "Osaka, Jepang",
-    text: "Program pelatihan sangat terstruktur dan instrukturnya berpengalaman. Saya sangat berterima kasih atas bimbingannya hingga berhasil berangkat ke Jepang.",
-    stars: 5,
-    avatar: "https://i.pravatar.cc/150?img=12",
-  },
-  {
-    name: "Maya Sari",
-    program: "Program Care Worker",
-    location: "Tokyo, Jepang",
-    text: "Bagi yang mau ke Jepang, LPK ini sangat direkomendasikan! Banyak belajar tentang bahasa dan budaya Jepang sebelum keberangkatan. Tim LPK sangat supportif.",
-    stars: 5,
-    avatar: "https://i.pravatar.cc/150?img=32",
-  },
-  {
-    name: "Budi Santoso",
-    program: "Program Hospitality",
-    location: "Kyoto, Jepang",
-    text: "Pengalaman belajar di sini luar biasa. Persiapan yang matang membuat saya percaya diri saat tiba di Jepang. Sangat puas dengan layanan LPK Bojonegoro Mendunia.",
-    stars: 5,
-    avatar: "https://i.pravatar.cc/150?img=53",
-  },
-  {
-    name: "Siti Aminah",
-    program: "Program Manufaktur",
-    location: "Nagoya, Jepang",
-    text: "Proses pelatihan dan pendampingannya sangat profesional. Saya merasa sangat terbantu mulai dari persiapan dokumen hingga keberangkatan.",
-    stars: 5,
-    avatar: "https://i.pravatar.cc/150?img=44",
-  },
+interface Testimonial {
+  name: string;
+  program: string;
+  location: string;
+  text: string;
+  stars: number;
+}
+
+const avatars = [
+  "https://i.pravatar.cc/150?img=47",
+  "https://i.pravatar.cc/150?img=12",
+  "https://i.pravatar.cc/150?img=32",
+  "https://i.pravatar.cc/150?img=53",
+  "https://i.pravatar.cc/150?img=44",
 ];
 
 const fadeUp = {
@@ -51,7 +24,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
-function TestiCard({ t: item }: { t: (typeof testimonials)[0] }) {
+function TestiCard({ item, avatar }: { item: Testimonial; avatar: string }) {
   return (
     <div className="bg-gray-50 rounded-2xl p-5 mb-4 flex-shrink-0">
       <div className="flex items-center gap-1 mb-3">
@@ -65,7 +38,7 @@ function TestiCard({ t: item }: { t: (typeof testimonials)[0] }) {
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white shadow-sm">
           <img
-            src={item.avatar}
+            src={avatar}
             alt={item.name}
             width={40}
             height={40}
@@ -84,14 +57,17 @@ function TestiCard({ t: item }: { t: (typeof testimonials)[0] }) {
 
 function MarqueeColumn({
   items,
+  avatars: avatarList,
   direction,
   duration,
 }: {
-  items: (typeof testimonials);
+  items: Testimonial[];
+  avatars: string[];
   direction: "up" | "down";
   duration: number;
 }) {
   const doubled = [...items, ...items];
+  const doubleAvatars = [...avatars, ...avatars];
   const animClass =
     direction === "up" ? "animate-marquee-up" : "animate-marquee-down";
 
@@ -101,7 +77,7 @@ function MarqueeColumn({
       <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none" />
       <div className={animClass} style={{ animationDuration: `${duration}s` }}>
         {doubled.map((t, i) => (
-          <TestiCard key={i} t={t} />
+          <TestiCard key={i} item={t} avatar={doubleAvatars[i]} />
         ))}
       </div>
     </div>
@@ -110,10 +86,16 @@ function MarqueeColumn({
 
 export default function Testimonials() {
   const tr = useTranslation();
+  const testimonials: Testimonial[] = tr.raw("testimonials.list") || [];
+
+  if (testimonials.length === 0) return null;
+
+  const a = avatars.slice(0, testimonials.length);
+
   const cols = [
-    { items: testimonials.slice(0, 5), direction: "up" as const, duration: 25 },
-    { items: [...testimonials.slice(2), ...testimonials.slice(0, 2)], direction: "down" as const, duration: 20 },
-    { items: [...testimonials.slice(4), ...testimonials.slice(0, 4)], direction: "up" as const, duration: 28 },
+    { items: testimonials.slice(0, 5), avatars: a.slice(0, 5), direction: "up" as const, duration: 25 },
+    { items: [...testimonials.slice(2, 5), ...testimonials.slice(0, 2)], avatars: [...a.slice(2, 5), ...a.slice(0, 2)], direction: "down" as const, duration: 20 },
+    { items: [...testimonials.slice(4, 5), ...testimonials.slice(0, 4)], avatars: [...a.slice(4, 5), ...a.slice(0, 4)], direction: "up" as const, duration: 28 },
   ];
 
   return (
@@ -142,7 +124,7 @@ export default function Testimonials() {
           ))}
         </motion.div>
         <motion.div variants={fadeUp} className="lg:hidden flex gap-4">
-          <MarqueeColumn items={testimonials} direction="up" duration={20} />
+          <MarqueeColumn items={testimonials} avatars={a} direction="up" duration={20} />
         </motion.div>
       </div>
     </motion.section>

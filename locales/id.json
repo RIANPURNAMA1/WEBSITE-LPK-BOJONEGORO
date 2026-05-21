@@ -186,7 +186,44 @@
     "card": {
       "program": "Program",
       "location": "Lokasi"
-    }
+    },
+    "list": [
+      {
+        "name": "Dewi Lestari",
+        "program": "Program Pertanian (Sakkau)",
+        "location": "Ibaraki, Jepang",
+        "text": "Pelatihan di LPK Bojonegoro Mendunia sangat membantu. Saya berhasil berangkat ke Jepang dan kini bekerja dengan penghasilan yang jauh lebih baik.",
+        "stars": 5
+      },
+      {
+        "name": "Rudi Hartono",
+        "program": "Program Teknikel Simes",
+        "location": "Osaka, Jepang",
+        "text": "Program pelatihan sangat terstruktur dan instrukturnya berpengalaman. Saya sangat berterima kasih atas bimbingannya hingga berhasil berangkat ke Jepang.",
+        "stars": 5
+      },
+      {
+        "name": "Maya Sari",
+        "program": "Program Care Worker",
+        "location": "Tokyo, Jepang",
+        "text": "Bagi yang mau ke Jepang, LPK ini sangat direkomendasikan! Banyak belajar tentang bahasa dan budaya Jepang sebelum keberangkatan. Tim LPK sangat supportif.",
+        "stars": 5
+      },
+      {
+        "name": "Budi Santoso",
+        "program": "Program Hospitality",
+        "location": "Kyoto, Jepang",
+        "text": "Pengalaman belajar di sini luar biasa. Persiapan yang matang membuat saya percaya diri saat tiba di Jepang. Sangat puas dengan layanan LPK Bojonegoro Mendunia.",
+        "stars": 5
+      },
+      {
+        "name": "Siti Aminah",
+        "program": "Program Manufaktur",
+        "location": "Nagoya, Jepang",
+        "text": "Proses pelatihan dan pendampingannya sangat profesional. Saya merasa sangat terbantu mulai dari persiapan dokumen hingga keberangkatan.",
+        "stars": 5
+      }
+    ]
   },
   "faq": {
     "header": {

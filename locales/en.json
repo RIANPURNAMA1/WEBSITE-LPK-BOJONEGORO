@@ -186,7 +186,44 @@
     "card": {
       "program": "Program",
       "location": "Location"
-    }
+    },
+    "list": [
+      {
+        "name": "Dewi Lestari",
+        "program": "Agriculture Program (Sakkau)",
+        "location": "Ibaraki, Japan",
+        "text": "Training at LPK Bojonegoro Mendunia was very helpful. I successfully departed to Japan and now work with a much better income.",
+        "stars": 5
+      },
+      {
+        "name": "Rudi Hartono",
+        "program": "Teknikel Simes Program",
+        "location": "Osaka, Japan",
+        "text": "The training program is very structured and the instructors are experienced. I am very grateful for the guidance until I successfully departed to Japan.",
+        "stars": 5
+      },
+      {
+        "name": "Maya Sari",
+        "program": "Care Worker Program",
+        "location": "Tokyo, Japan",
+        "text": "For those who want to go to Japan, this LPK is highly recommended! Learned a lot about Japanese language and culture before departure. The LPK team is very supportive.",
+        "stars": 5
+      },
+      {
+        "name": "Budi Santoso",
+        "program": "Hospitality Program",
+        "location": "Kyoto, Japan",
+        "text": "The learning experience here was amazing. Thorough preparation made me confident when arriving in Japan. Very satisfied with LPK Bojonegoro Mendunia's service.",
+        "stars": 5
+      },
+      {
+        "name": "Siti Aminah",
+        "program": "Manufacturing Program",
+        "location": "Nagoya, Japan",
+        "text": "The training and mentoring process was very professional. I felt very helped from document preparation to departure.",
+        "stars": 5
+      }
+    ]
   },
   "faq": {
     "header": {

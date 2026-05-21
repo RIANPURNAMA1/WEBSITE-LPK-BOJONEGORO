@@ -19,7 +19,22 @@ export const t = (key: string, lang: string): string => {
   return result;
 };
 
+export const tRaw = (key: string, lang: string): any => {
+  const keys = key.split(".");
+  let result: any = locales[lang] || locales["id"];
+  for (const k of keys) {
+    if (result && typeof result === "object" && k in result) {
+      result = result[k];
+    } else {
+      return null;
+    }
+  }
+  return result;
+};
+
 export const useTranslation = () => {
   const { lang } = useLanguage();
-  return (key: string) => t(key, lang);
+  const tr = (key: string) => t(key, lang);
+  tr.raw = (key: string) => tRaw(key, lang);
+  return tr;
 };
