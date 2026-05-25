@@ -26,10 +26,10 @@
       "mulaiPerjalananmu": "Mulai Perjalananmu"
     },
     "heading": {
-      "siapBerangkat": "Siap Berangkat",
-      "karirKerjaDiJepang": "Karir dan Kerja Di Jepang"
+      "siapBerangkat": "Peluang Kerja Mendunia di ",
+      "karirKerjaDiJepang": "Jepang dan Korea"
     },
-    "description": "LPK Bojonegoro Mendunia fokus pada pelatihan bahasa, budaya, dan skill teknis untuk memastikan Anda siap bekerja secara profesional dan meraih sukses di perusahaan Jepang.",
+    "description": "Kami bersamai sampai kamu bisa sukses kerja mendunia ke Jepang dan Korea Selatan.",
     "buttons": {
       "mulaiPerjalananmu": "Mulai Perjalananmu",
       "konsultasiGratis": "Konsultasi Gratis"
@@ -40,81 +40,73 @@
       "siapaKami": "Siapa Kami",
       "tentangKami": "Tentang Kami"
     },
-    "description": [
-      "LPK profesional dengan komitmen tinggi membantu tenaga kerja Indonesia meraih peluang karir cemerlang di Jepang.",
-      "Didirikan dengan visi untuk membantu tenaga kerja Indonesia meraih kesempatan kerja di Jepang. Kami memiliki rekam jejak yang terbukti dalam mendampingi peserta dari proses seleksi hingga penempatan di Jepang.",
-      "Dengan pengalaman lebih dari 10 tahun, kami telah berhasil memberangkatkan lebih dari 500 alumni ke berbagai kota di Jepang dengan program magang dan kerja yang terakreditasi."
-    ],
+ "description": [
+   "Kami hadir untuk menjawab permasalahan anak muda khususnya di Bojonegoro dan sekitarnya  yang ingin kerja dijepang dan korea selatan.",
+  "Bojonegoro Sukses Mendunia adalah Kami adalah sebuah wadah (tempat) pemberdayaan buat pemuda yang ada di Bojonegoro dan sekitarnya memberikan bimbingan dan pendidikan bahasa jepang dan korea untuk persiapan kerja ke negara tersebut."
+],
     "stats": {
       "alumniBerangkat": "Alumni Berangkat",
       "tahunPengalaman": "Tahun Pengalaman",
       "mitraPerusahaan": "Mitra Perusahaan"
     },
     "keunggulan": {
-      "title": "Mengapa Memilih Kami?",
-      "instrukturPengalaman": {
-        "title": "Instruktur Berpengalaman",
-        "desc": "Tim instruktur kami terdiri dari alumni yang sukses bekerja di Jepang dengan pengalaman lebih dari 5 tahun."
+      "title": "Kenapa harus ikut Kelas di Mendunia.id?",
+      "terjangkau": {
+        "title": "Terjangkau dan Transparan",
+        "desc": "Kami menyediakan program pelatihan yang murah dan transparan, sehingga Anda bisa mendapatkan pendidikan berkualitas tanpa harus khawatir tentang biaya yang tidak terduga. Kami percaya bahwa setiap pemuda berhak mendapatkan kesempatan untuk berkembang tanpa harus terbebani secara finansial."
       },
-      "fasilitasLengkap": {
-        "title": "Fasilitas Lengkap",
-        "desc": "Fasilitas pelatihan yang memadai dan lengkap untuk mendukung proses pembelajaran secara optimal."
+      "kurikulum": {
+        "title": "Kurikulum dan Metode Terbukti",
+        "desc": "Kelas pelatihan dirancang dengan kurikulum yang terbukti banyak yang lulus tes dan bahkan dengan nilai Full Poin (nilai penuh). Serta menggabungkan metode pengajaran modern yang memudahkan proses belajar. Dengan bimbingan dari pengajar berpengalaman, Anda akan mempelajari bahasa Jepang dan Korea dengan cara yang cepat dan menyenangkan."
       },
-      "programTerstruktur": {
-        "title": "Program Terstruktur",
-        "desc": "Program pelatihan yang dirancang secara sistematis sesuai standar magang di perusahaan Jepang."
+      "bukuPanduan": {
+        "title": "Buku Panduan #SuksesMendunia",
+        "desc": "Kita siapkan buku Panduan #SuksesMendunia agar kamu bisa cepat mempelajari step by step setiap pemebelajaran Jepang ataupun Korea."
       },
-      "bimbinganIntensif": {
-        "title": "Bimbingan Intensif",
-        "desc": "Pendampingan penuh mulai dari proses seleksi hingga peserta resmi berangkat ke Jepang."
+      "jaringan": {
+        "title": "Jaringan & Kelas Bisnis Mendunia",
+        "desc": "Bergabung dengan MENDUNIA.ID berarti menjadi bagian dari Keluarga Besar Mendunia Jepang Korea yang tersebar kandidatnya di cabang Mendunia seluruh Indonesia. Dan bahkan kamu bisa mengikuti Kelas Bisnis Mendunia yang difasilitasi. Agar kamu mandiri dalam persiapan dan keberangkatan bisa GRATIS! dengan ikut Program Kelasnya."
+      },
+      "garansi": {
+        "title": "100% Garansi Sampai Lulus & Kerja",
+        "desc": "Kami berikan keleluasaan bagi kamu untuk bisa terus mengikuti kelas jika kamu belum lulus tes, kamu boleh terus mengulang dan hadir dikelas mengikuti pembelajaran. Dan kami akan Garansi kamu bisa dapat pekerjaan dan berangkat kerja ke Jepang atau Korea. Asalkan terus mengikuti segala prosedure yang kami tetapkan."
+      },
+      "danaTalang": {
+        "title": "Dana Talang Keberangkatan Syariah",
+        "desc": "Sudah beres semua proses dan Tinggal berangkat, tapi bingung prihal pembiayaan keberangkatan? Kami bantu fasilitasi pembiayaan (dana talang) keberangkatan dan secara Akadnya Syari'ah."
       }
     }
   },
   "programs": {
     "header": {
-      "title": "Program Pelatihan",
-      "subtitle": "Pilih program yang sesuai dengan minat dan kemampuan Anda untuk bekerja di Jepang"
+      "title": "Program mendunia.id",
+      "subtitle": "Ada Kelas Apa saja?"
     },
-    "details": {
-      "duration": "Durasi",
-      "category": "Kategori",
-      "persyaratan": "Persyaratan:",
-      "usia": "Usia",
-      "pendidikan": "Pendidikan"
-    },
-    "cta": "Lihat detail",
+    "cta": "Info Selengkapnya",
     "list": [
       {
-        "title": "Program Gakkou",
-        "desc": "Program pelatihan untuk bekerja di sekolah-sekolah di Jepang dengan fokus pada pendidikan dan pengasuhan anak.",
-        "duration": "12 bulan",
-        "category": "Gakkou",
-        "usia": "Usia 18-30 tahun",
-        "pendidikan": "Lulusan SMA/SMK sederajat"
+        "title": "Kelas Mendunia Jepang",
+        "desc": "Pembelajaran bahasa Jepang dan persiapan menjadi pekerja di Jepang",
+        "cocok": "Kelas ini cocok buat kamu yang ingin bekerja & berkarir di Negara Jepang",
+        "features": [
+          "Proses Belajar 3-5 Bulan",
+          "Sertifikat Bahasa JFT A2",
+          "Program Kerja bukan Magang",
+          "100% Garansi Mengulang Kelas",
+          "Dan lain-lain"
+        ]
       },
       {
-        "title": "Program Tokutei Ginou",
-        "desc": "Program pelatihan keahlian khusus untuk berbagai sektor industri di Jepang dengan peluang karir jangka panjang.",
-        "duration": "18 bulan",
-        "category": "Tokutei Ginou",
-        "usia": "Usia 18-35 tahun",
-        "pendidikan": "Lulusan SMA/SMK sederajat"
-      },
-      {
-        "title": "Program Care Worker",
-        "desc": "Program pelatihan untuk bekerja di bidang perawatan lansia di Jepang dengan sertifikasi resmi.",
-        "duration": "15 bulan",
-        "category": "Care Worker",
-        "usia": "Usia 18-30 tahun",
-        "pendidikan": "Lulusan SMA/SMK sederajat"
-      },
-      {
-        "title": "Program Hospitality",
-        "desc": "Program pelatihan untuk bekerja di industri perhotelan dan pariwisata di Jepang.",
-        "duration": "10 bulan",
-        "category": "Hospitality",
-        "usia": "Usia 18-28 tahun",
-        "pendidikan": "Lulusan SMA/SMK sederajat"
+        "title": "Kelas Mendunia Korea",
+        "desc": "Pembelajaran bahasa Korea dan persiapan menjadi pekerja di Korea Selatan",
+        "cocok": "Kelas ini cocok buat kamu yang ingin bekerja & berkarir di Negara Korea Selatan",
+        "features": [
+          "Proses Belajar 3-4 Bulan",
+          "Sertifikat EPS Topik",
+          "Program G to G (resmi pemerintah)",
+          "100% Garansi Mengulang Kelas",
+          "Dan lain-lain"
+        ]
       }
     ]
   },

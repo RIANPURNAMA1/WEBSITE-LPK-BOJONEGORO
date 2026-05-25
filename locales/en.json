@@ -51,70 +51,63 @@
       "mitraPerusahaan": "Company Partners"
     },
     "keunggulan": {
-      "title": "Why Choose Us?",
-      "instrukturPengalaman": {
-        "title": "Experienced Instructors",
-        "desc": "Our instructor team consists of alumni who successfully worked in Japan with more than 5 years of experience."
+      "title": "Why Join Classes at Mendunia.id?",
+      "terjangkau": {
+        "title": "Affordable & Transparent",
+        "desc": "We provide affordable and transparent training programs, so you can get quality education without worrying about unexpected costs. We believe every young person deserves the opportunity to grow without financial burden."
       },
-      "fasilitasLengkap": {
-        "title": "Complete Facilities",
-        "desc": "Adequate and complete training facilities to support the learning process optimally."
+      "kurikulum": {
+        "title": "Proven Curriculum & Methods",
+        "desc": "Training classes are designed with a proven curriculum where many pass the tests and even achieve Full Points. Combined with modern teaching methods that make learning easier. With guidance from experienced instructors, you will learn Japanese and Korean quickly and enjoyably."
       },
-      "programTerstruktur": {
-        "title": "Structured Program",
-        "desc": "Training program designed systematically according to internship standards in Japanese companies."
+      "bukuPanduan": {
+        "title": "#SuksesMendunia Guidebook",
+        "desc": "We prepare the #SuksesMendunia Guidebook so you can quickly learn step by step every lesson in Japanese or Korean."
       },
-      "bimbinganIntensif": {
-        "title": "Intensive Guidance",
-        "desc": "Full guidance from the selection process until participants officially depart for Japan."
+      "jaringan": {
+        "title": "Network & Business Class",
+        "desc": "Joining MENDUNIA.ID means becoming part of the Big Mendunia Japan Korea Family spread across Mendunia branches throughout Indonesia. You can also join the facilitated Business Class. Be independent in preparation and departure for FREE! by joining the Class Program."
+      },
+      "garansi": {
+        "title": "100% Guarantee Until Graduation & Job",
+        "desc": "We give you the flexibility to continue attending classes if you haven't passed the test. You can keep repeating and attending classes. We guarantee you can get a job and depart to Japan or Korea, as long as you follow all the procedures we set."
+      },
+      "danaTalang": {
+        "title": "Sharia-Compliant Departure Funding",
+        "desc": "All processes are done and ready to depart, but confused about departure costs? We help facilitate departure funding (advance funds) with Sharia-compliant terms."
       }
     }
   },
   "programs": {
     "header": {
-      "title": "Training Programs",
-      "subtitle": "Choose a program that matches your interests and abilities to work in Japan"
+      "title": "Program mendunia.id",
+      "subtitle": "What Classes Are Available?"
     },
-    "details": {
-      "duration": "Duration",
-      "category": "Category",
-      "persyaratan": "Requirements:",
-      "usia": "Age",
-      "pendidikan": "Education"
-    },
-    "cta": "View Details",
+    "cta": "More Info",
     "list": [
       {
-        "title": "Gakkou Program",
-        "desc": "Training program to work in schools in Japan with a focus on education and childcare.",
-        "duration": "12 months",
-        "category": "Gakkou",
-        "usia": "Age 18-30 years",
-        "pendidikan": "High School/Vocational School Graduate"
+        "title": "Japan World Class",
+        "desc": "Learn Japanese and prepare to work in Japan",
+        "cocok": "This class is perfect for you who want to work & build a career in Japan",
+        "features": [
+          "Learning Process 3-5 Months",
+          "JFT A2 Language Certificate",
+          "Work Program, Not Internship",
+          "100% Guaranteed Class Retake",
+          "And many more"
+        ]
       },
       {
-        "title": "Tokutei Ginou Program",
-        "desc": "Special skills training program for various industrial sectors in Japan with long-term career opportunities.",
-        "duration": "18 months",
-        "category": "Tokutei Ginou",
-        "usia": "Age 18-35 years",
-        "pendidikan": "High School/Vocational School Graduate"
-      },
-      {
-        "title": "Care Worker Program",
-        "desc": "Training program to work in elderly care in Japan with official certification.",
-        "duration": "15 months",
-        "category": "Care Worker",
-        "usia": "Age 18-30 years",
-        "pendidikan": "High School/Vocational School Graduate"
-      },
-      {
-        "title": "Hospitality Program",
-        "desc": "Training program to work in the hotel and tourism industry in Japan.",
-        "duration": "10 months",
-        "category": "Hospitality",
-        "usia": "Age 18-28 years",
-        "pendidikan": "High School/Vocational School Graduate"
+        "title": "Korea World Class",
+        "desc": "Learn Korean and prepare to work in South Korea",
+        "cocok": "This class is perfect for you who want to work & build a career in South Korea",
+        "features": [
+          "Learning Process 3-4 Months",
+          "EPS Topik Certificate",
+          "G to G Program (official government)",
+          "100% Guaranteed Class Retake",
+          "And many more"
+        ]
       }
     ]
   },

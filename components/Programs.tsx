@@ -1,23 +1,18 @@
 "use client";
 import { useState } from "react";
 import {
-  Clock,
   CheckCircle2,
   ArrowRight,
-  GraduationCap,
-  Briefcase,
-  Users,
-  Building,
+  Globe,
+  Flag,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "@/utils/i18n";
 import ProgramDetail from "@/components/ProgramDetail";
 
 const programKeys = [
-  { icon: GraduationCap, categoryIcon: Building, idx: 0 },
-  { icon: Briefcase, categoryIcon: Briefcase, idx: 1 },
-  { icon: Users, categoryIcon: Building, idx: 2 },
-  { icon: Building, categoryIcon: Building, idx: 3 },
+  { icon: Globe, idx: 0 },
+  { icon: Flag, idx: 1 },
 ];
 
 const container = {
@@ -43,61 +38,52 @@ export default function Programs() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div variants={fadeUp} className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
+          <p className="text-[#007ab3] font-semibold text-xs sm:text-sm uppercase tracking-widest mb-2">
             {t("programs.header.title")}
-          </h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-sm sm:text-base px-2">
-            {t("programs.header.subtitle")}
           </p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
+            {t("programs.header.subtitle")}
+          </h2>
         </motion.div>
-        <motion.div variants={container} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {programKeys.map(({ icon: Icon, categoryIcon: CategoryIcon, idx }) => (
-            <motion.div
-              key={idx}
-              variants={fadeUp}
-              className="bg-white rounded-sm p-6 border border-slate-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col group"
-            >
-              <div className="w-12 h-12 rounded-xl bg-[#007ab3]/10 text-[#007ab3] flex items-center justify-center mb-5 group-hover:bg-[#007ab3] group-hover:text-white transition-colors duration-300">
-                <Icon className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-slate-900 text-lg mb-2 leading-snug">
-                {t(`programs.list.${idx}.title`)}
-              </h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3">
-                {t(`programs.list.${idx}.desc`)}
-              </p>
-              <div className="space-y-2.5 mb-5 flex-1">
-                <div className="flex items-center gap-2.5 text-sm text-slate-600">
-                  <Clock className="w-4 h-4 text-slate-400 shrink-0" />
-                  <span>{t(`programs.list.${idx}.duration`)}</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-sm text-slate-600">
-                  <CategoryIcon className="w-4 h-4 text-slate-400 shrink-0" />
-                  <span>{t(`programs.list.${idx}.category`)}</span>
-                </div>
-              </div>
-              <div className="mt-auto pt-5 border-t border-slate-100 mb-6">
-                <p className="text-[13px] font-semibold text-slate-900 mb-3">{t("programs.details.persyaratan")}</p>
-                <div className="space-y-2.5">
-                  <div className="flex items-start gap-2 text-sm text-slate-600">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="leading-tight">{t(`programs.list.${idx}.usia`)}</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-sm text-slate-600">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="leading-tight">{t(`programs.list.${idx}.pendidikan`)}</span>
-                  </div>
-                </div>
-              </div>
-              <button
-                onClick={() => setSelected(idx)}
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#007ab3] hover:text-[#00608e] group-hover:gap-2.5 transition-all cursor-pointer"
+        <motion.div variants={container} className="grid md:grid-cols-2 gap-8">
+          {programKeys.map(({ icon: Icon, idx }) => {
+            const features: string[] = t.raw(`programs.list.${idx}.features`) as string[];
+            return (
+              <motion.div
+                key={idx}
+                variants={fadeUp}
+                className="bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
               >
-                {t("programs.cta")}
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </motion.div>
-          ))}
+                <div className="w-14 h-14 rounded-2xl bg-[#007ab3]/10 flex items-center justify-center mb-6 group-hover:bg-[#007ab3] transition-colors duration-300">
+                  <Icon className="w-7 h-7 text-[#007ab3] group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  {t(`programs.list.${idx}.title`)}
+                </h3>
+                <p className="text-slate-500 text-sm leading-relaxed mb-4">
+                  {t(`programs.list.${idx}.desc`)}
+                </p>
+                <p className="text-slate-600 text-sm font-medium mb-5">
+                  {t(`programs.list.${idx}.cocok`)}
+                </p>
+                <div className="space-y-3 mb-8">
+                  {features.map((feature: string, i: number) => (
+                    <div key={i} className="flex items-start gap-3 text-sm text-slate-600">
+                      <CheckCircle2 className="w-4 h-4 text-[#007ab3] shrink-0 mt-0.5" />
+                      <span className="leading-tight">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setSelected(idx)}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#007ab3] hover:bg-[#00608e] text-white font-semibold text-sm rounded-lg transition-all active:scale-95 cursor-pointer"
+                >
+                  {t("programs.cta")}
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
       {selected !== null && (

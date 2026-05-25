@@ -1,5 +1,5 @@
 "use client";
-import { X, Clock, CheckCircle2, Send } from "lucide-react";
+import { X, CheckCircle2, Send } from "lucide-react";
 import { useTranslation } from "@/utils/i18n";
 import { useRegister } from "@/components/RegisterModal";
 
@@ -18,6 +18,8 @@ export default function ProgramDetail({
     openRegister();
   };
 
+  const features: string[] = t.raw(`programs.list.${idx}.features`) as string[];
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
@@ -35,30 +37,19 @@ export default function ProgramDetail({
             {t(`programs.list.${idx}.desc`)}
           </p>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-2.5 text-sm text-slate-600 bg-slate-50 rounded-md px-4 py-3">
-              <Clock className="w-4 h-4 text-slate-400 shrink-0" />
-              <span className="font-medium text-slate-500">{t("programs.details.duration")}:</span>
-              <span>{t(`programs.list.${idx}.duration`)}</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-sm text-slate-600 bg-slate-50 rounded-md px-4 py-3">
-              <CheckCircle2 className="w-4 h-4 text-slate-400 shrink-0" />
-              <span className="font-medium text-slate-500">{t("programs.details.category")}:</span>
-              <span>{t(`programs.list.${idx}.category`)}</span>
-            </div>
-          </div>
+          <p className="text-slate-700 text-sm font-medium">
+            {t(`programs.list.${idx}.cocok`)}
+          </p>
 
           <div className="border-t border-slate-100 pt-5">
-            <p className="text-[13px] font-semibold text-slate-900 mb-3">{t("programs.details.persyaratan")}</p>
-            <div className="space-y-2.5">
-              <div className="flex items-start gap-2 text-sm text-slate-600">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                <span className="leading-tight">{t(`programs.list.${idx}.usia`)}</span>
-              </div>
-              <div className="flex items-start gap-2 text-sm text-slate-600">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                <span className="leading-tight">{t(`programs.list.${idx}.pendidikan`)}</span>
-              </div>
+            <p className="text-[13px] font-semibold text-slate-900 mb-3">Fitur Program:</p>
+            <div className="space-y-3">
+              {features.map((feature: string, i: number) => (
+                <div key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                  <CheckCircle2 className="w-4 h-4 text-[#007ab3] shrink-0 mt-0.5" />
+                  <span className="leading-tight">{feature}</span>
+                </div>
+              ))}
             </div>
           </div>
 
