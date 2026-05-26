@@ -2,9 +2,14 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTranslation } from "@/utils/i18n";
+import { useTranslation } from "@/utils/LanguageProvider";
 
-const faqCount = 6;
+function getFaqs(t: (key: string) => string) {
+  return Array.from({ length: 14 }, (_, i) => ({
+    q: t(`faq.q${i + 1}`),
+    a: t(`faq.a${i + 1}`),
+  }));
+}
 
 const container = {
   hidden: {},
@@ -17,8 +22,9 @@ const fadeUp = {
 };
 
 export default function FAQ() {
-  const t = useTranslation();
+  const { t } = useTranslation();
   const [open, setOpen] = useState<number | null>(0);
+  const faqs = getFaqs(t);
 
   return (
     <motion.section
@@ -30,16 +36,16 @@ export default function FAQ() {
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div variants={fadeUp} className="text-center mb-16">
-          <p className="text-[#007ab3] font-semibold text-sm uppercase tracking-widest mb-2">FAQ</p>
+          <p className="text-[#007ab3] font-semibold text-sm uppercase tracking-widest mb-2">{t("nav.faq")}</p>
           <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
-            {t("faq.header.title")}
+            {t("faq.title")}
           </h2>
           <p className="text-gray-500">
-            {t("faq.header.subtitle")}
+            {t("faq.desc")}
           </p>
         </motion.div>
         <motion.div variants={container} className="space-y-3">
-          {Array.from({ length: faqCount }).map((_, i) => (
+          {faqs.map((faq, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
@@ -50,7 +56,7 @@ export default function FAQ() {
                 onClick={() => setOpen(open === i ? null : i)}
               >
                 <span className="font-semibold text-gray-900 pr-4 text-sm sm:text-base">
-                  {t(`faq.questions.${i}.q`)}
+                  {faq.q}
                 </span>
                 <ChevronDown
                   className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-200 ${
@@ -60,7 +66,7 @@ export default function FAQ() {
               </button>
               {open === i && (
                 <div className="px-6 pb-5">
-                  <p className="text-gray-600 text-sm leading-relaxed">{t(`faq.questions.${i}.a`)}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
                 </div>
               )}
             </motion.div>

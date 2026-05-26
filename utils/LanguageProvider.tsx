@@ -1,12 +1,13 @@
 "use client";
-
 import { createContext, useContext, useEffect, useState } from "react";
+import { translations, Lang } from "./translations";
 
-type LangCode = "id" | "en" | "ja";
+type LangCode = Lang;
 
 const LanguageContext = createContext({
   lang: "id" as LangCode,
-  setLang: (lang: LangCode) => {},
+  setLang: (_lang: LangCode) => {},
+  t: (_key: string): string => "",
 });
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
@@ -21,15 +22,20 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     localStorage.setItem("lang", lang);
-    // Also update the html lang attribute for accessibility and SEO
     document.documentElement.lang = lang;
   }, [lang]);
 
+  const t = (key: string) => {
+    const entry = translations[key];
+    if (!entry) return key;
+    return entry[lang] || entry["id"] || key;
+  };
+
   return (
-    <LanguageContext.Provider value={{ lang, setLang }}>
+    <LanguageContext.Provider value={{ lang, setLang, t }}>
       {children}
     </LanguageContext.Provider>
   );
 }
 
-export const useLanguage = () => useContext(LanguageContext);
+export const useTranslation = () => useContext(LanguageContext);

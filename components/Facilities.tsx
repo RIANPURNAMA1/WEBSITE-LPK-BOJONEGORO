@@ -1,16 +1,18 @@
 "use client";
 import { Monitor, BookOpen, Dumbbell, Bed, Wifi, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTranslation } from "@/utils/i18n";
+import { useTranslation } from "@/utils/LanguageProvider";
 
-const facilityKeys = [
-  { icon: Monitor, idx: 0 },
-  { icon: BookOpen, idx: 1 },
-  { icon: Dumbbell, idx: 2 },
-  { icon: Bed, idx: 3 },
-  { icon: Wifi, idx: 4 },
-  { icon: GraduationCap, idx: 5 },
-];
+function getFacilities(t: (key: string) => string) {
+  return [
+    { icon: Monitor, title: t("facilities.ruangKelas"), desc: t("facilities.ruangKelasDesc") },
+    { icon: BookOpen, title: t("facilities.labBahasa"), desc: t("facilities.labBahasaDesc") },
+    { icon: Dumbbell, title: t("facilities.perpus"), desc: t("facilities.perpusDesc") },
+    { icon: Bed, title: t("facilities.asrama"), desc: t("facilities.asramaDesc") },
+    { icon: Wifi, title: t("facilities.kantin"), desc: t("facilities.kantinDesc") },
+    { icon: GraduationCap, title: t("facilities.aula"), desc: t("facilities.aulaDesc") },
+  ];
+}
 
 const container = {
   hidden: {},
@@ -23,7 +25,8 @@ const fadeUp = {
 };
 
 export default function Facilities() {
-  const t = useTranslation();
+  const { t } = useTranslation();
+  const facilities = getFacilities(t);
   return (
     <motion.section
       id="fasilitas"
@@ -35,19 +38,19 @@ export default function Facilities() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-8">
         <motion.div variants={fadeUp} className="text-center mb-12 md:mb-16">
           <p className="text-[#007ab3] font-semibold text-xs sm:text-sm uppercase tracking-widest mb-2">
-            {t("facilities.header.title")}
+            {t("facilities.title")}
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-            {t("facilities.header.subtitle")}
+            {t("facilities.subtitle")}
           </h2>
           <p className="text-slate-500 max-w-xl mx-auto text-sm sm:text-base px-2">
-            {t("facilities.header.description")}
+            {t("facilities.desc")}
           </p>
         </motion.div>
         <motion.div variants={container} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {facilityKeys.map(({ icon: Icon, idx }) => (
+          {facilities.map(({ icon: Icon, title, desc }) => (
             <motion.div
-              key={idx}
+              key={title}
               variants={fadeUp}
               className="bg-white rounded-md p-8 border border-slate-200 hover:border-[#007ab3]/30 hover:shadow-lg transition-all duration-300 group"
             >
@@ -55,10 +58,10 @@ export default function Facilities() {
                 <Icon className="w-7 h-7" />
               </div>
               <h3 className="font-bold text-slate-900 text-lg mb-3 group-hover:text-[#007ab3] transition-colors">
-                {t(`facilities.list.${idx}.title`)}
+                {title}
               </h3>
               <p className="text-slate-500 text-sm leading-relaxed">
-                {t(`facilities.list.${idx}.desc`)}
+                {desc}
               </p>
             </motion.div>
           ))}

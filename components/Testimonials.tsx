@@ -1,15 +1,45 @@
 "use client";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { useTranslation } from "@/utils/i18n";
+import { useTranslation } from "@/utils/LanguageProvider";
 
-interface Testimonial {
-  name: string;
-  program: string;
-  location: string;
-  text: string;
-  stars: number;
-}
+const testimonials = [
+  {
+    name: "Dewi Lestari",
+    program: "Program Pertanian (Sakkau)",
+    location: "Ibaraki, Jepang",
+    text: "Pelatihan di LPK Bojonegoro Mendunia sangat membantu. Saya berhasil berangkat ke Jepang dan kini bekerja dengan penghasilan yang jauh lebih baik.",
+    stars: 5,
+  },
+  {
+    name: "Rudi Hartono",
+    program: "Program Teknikel Simes",
+    location: "Osaka, Jepang",
+    text: "Program pelatihan sangat terstruktur dan instrukturnya berpengalaman. Saya sangat berterima kasih atas bimbingannya hingga berhasil berangkat ke Jepang.",
+    stars: 5,
+  },
+  {
+    name: "Maya Sari",
+    program: "Program Care Worker",
+    location: "Tokyo, Jepang",
+    text: "Bagi yang mau ke Jepang, LPK ini sangat direkomendasikan! Banyak belajar tentang bahasa dan budaya Jepang sebelum keberangkatan. Tim LPK sangat supportif.",
+    stars: 5,
+  },
+  {
+    name: "Budi Santoso",
+    program: "Program Hospitality",
+    location: "Kyoto, Jepang",
+    text: "Pengalaman belajar di sini luar biasa. Persiapan yang matang membuat saya percaya diri saat tiba di Jepang. Sangat puas dengan layanan LPK Bojonegoro Mendunia.",
+    stars: 5,
+  },
+  {
+    name: "Siti Aminah",
+    program: "Program Manufaktur",
+    location: "Nagoya, Jepang",
+    text: "Proses pelatihan dan pendampingannya sangat profesional. Saya merasa sangat terbantu mulai dari persiapan dokumen hingga keberangkatan.",
+    stars: 5,
+  },
+];
 
 const avatars = [
   "https://i.pravatar.cc/150?img=47",
@@ -24,7 +54,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
-function TestiCard({ item, avatar }: { item: Testimonial; avatar: string }) {
+function TestiCard({ item, avatar }: { item: typeof testimonials[0]; avatar: string }) {
   return (
     <div className="bg-gray-50 rounded-2xl p-5 mb-4 flex-shrink-0">
       <div className="flex items-center gap-1 mb-3">
@@ -61,7 +91,7 @@ function MarqueeColumn({
   direction,
   duration,
 }: {
-  items: Testimonial[];
+  items: typeof testimonials;
   avatars: string[];
   direction: "up" | "down";
   duration: number;
@@ -85,17 +115,11 @@ function MarqueeColumn({
 }
 
 export default function Testimonials() {
-  const tr = useTranslation();
-  const testimonials: Testimonial[] = tr.raw("testimonials.list") || [];
-
-  if (testimonials.length === 0) return null;
-
-  const a = avatars.slice(0, testimonials.length);
-
+  const { t } = useTranslation();
   const cols = [
-    { items: testimonials.slice(0, 5), avatars: a.slice(0, 5), direction: "up" as const, duration: 25 },
-    { items: [...testimonials.slice(2, 5), ...testimonials.slice(0, 2)], avatars: [...a.slice(2, 5), ...a.slice(0, 2)], direction: "down" as const, duration: 20 },
-    { items: [...testimonials.slice(4, 5), ...testimonials.slice(0, 4)], avatars: [...a.slice(4, 5), ...a.slice(0, 4)], direction: "up" as const, duration: 28 },
+    { items: testimonials.slice(0, 5), avatars: avatars.slice(0, 5), direction: "up" as const, duration: 25 },
+    { items: [...testimonials.slice(2, 5), ...testimonials.slice(0, 2)], avatars: [...avatars.slice(2, 5), ...avatars.slice(0, 2)], direction: "down" as const, duration: 20 },
+    { items: [...testimonials.slice(4, 5), ...testimonials.slice(0, 4)], avatars: [...avatars.slice(4, 5), ...avatars.slice(0, 4)], direction: "up" as const, duration: 28 },
   ];
 
   return (
@@ -109,13 +133,13 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div variants={fadeUp} className="text-center mb-16">
           <p className="text-[#007ab3] font-semibold text-sm uppercase tracking-widest mb-2">
-            {tr("testimonials.header.title")}
+            {t("testi.title")}
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
-            {tr("testimonials.header.subtitle")}
+            {t("testi.subtitle")}
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            {tr("testimonials.header.description")}
+            {t("testi.desc")}
           </p>
         </motion.div>
         <motion.div variants={fadeUp} className="hidden lg:flex gap-6">
@@ -124,7 +148,7 @@ export default function Testimonials() {
           ))}
         </motion.div>
         <motion.div variants={fadeUp} className="lg:hidden flex gap-4">
-          <MarqueeColumn items={testimonials} avatars={a} direction="up" duration={20} />
+          <MarqueeColumn items={testimonials} avatars={avatars} direction="up" duration={20} />
         </motion.div>
       </div>
     </motion.section>

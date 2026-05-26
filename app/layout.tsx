@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { LanguageProvider } from "@/components/LanguageProvider";
+import { LanguageProvider } from "@/utils/LanguageProvider";
 import { RegisterProvider } from "@/components/RegisterModal";
 import SplashScreen from "@/components/SplashScreen";
 import "./globals.css";

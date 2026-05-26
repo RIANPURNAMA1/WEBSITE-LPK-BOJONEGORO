@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Wallet, GraduationCap, BookOpen, Users, ShieldCheck, HandCoins, ChevronDown, ChevronUp } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTranslation } from "@/utils/i18n";
+import { useTranslation } from "@/utils/LanguageProvider";
 
 const keunggulanKeys = [
   { icon: Wallet, key: "terjangkau" },
@@ -29,7 +29,7 @@ const scaleIn = {
 };
 
 export default function About() {
-  const t = useTranslation();
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
   const toggleExpand = (key: string) => {
@@ -37,7 +37,7 @@ export default function About() {
   };
 
   return (
-    <section id="tentang" className="py-16 md:py-24 bg-white">
+    <section id="tentang" className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-8">
         <motion.div
           initial="hidden"
@@ -47,13 +47,13 @@ export default function About() {
           className="text-center mb-12 md:mb-16"
         >
           <p className="text-[#007ab3] font-semibold text-xs sm:text-sm uppercase tracking-widest mb-2">
-            {t("about.header.siapaKami")}
+            {t("about.siapaKami")}
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-            {t("about.header.tentangKami")}
+            {t("about.tentangKami")}
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base px-2">
-            {t("about.description.0")}
+            {t("about.desc1")}
           </p>
         </motion.div>
 
@@ -69,23 +69,23 @@ export default function About() {
               LPK Bojonegoro Mendunia
             </h3>
             <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
-              {t("about.description.1")}
+              {t("about.desc2")}
             </p>
           </motion.div>
           <motion.div variants={fadeUp} className="lg:w-1/2">
             <div className="grid grid-cols-3 gap-4 sm:gap-6">
               {[
-                { num: "500+", labelKey: "about.stats.alumniBerangkat" },
-                { num: "10+", labelKey: "about.stats.tahunPengalaman" },
-                { num: "50+", labelKey: "about.stats.mitraPerusahaan" },
-              ].map(({ num, labelKey }) => (
+                { num: "500+", label: t("about.stats1") },
+                { num: "10+", label: t("about.stats2") },
+                { num: "50+", label: t("about.stats3") },
+              ].map(({ num, label }) => (
                 <motion.div
-                  key={labelKey}
+                  key={label}
                   variants={scaleIn}
                   className="bg-gradient-to-br from-[#007ab3]/5 to-[#007ab3]/10 border border-[#007ab3]/10 rounded-xl px-3 py-5 sm:py-6 text-center flex flex-col items-center justify-center transition-all hover:shadow-md hover:-translate-y-0.5"
                 >
                   <div className="text-2xl sm:text-3xl font-black text-[#007ab3] mb-1">{num}</div>
-                  <div className="text-[11px] sm:text-sm text-slate-600 font-medium leading-tight">{t(labelKey)}</div>
+                  <div className="text-[11px] sm:text-sm text-slate-600 font-medium leading-tight">{label}</div>
                 </motion.div>
               ))}
             </div>
@@ -100,10 +100,10 @@ export default function About() {
           className="text-center mb-10 md:mb-12"
         >
           <p className="text-[#007ab3] font-semibold text-xs sm:text-sm uppercase tracking-widest mb-2">
-            Keunggulan
+            {t("about.keunggulan")}
           </p>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            {t("about.keunggulan.title")}
+            {t("about.keunggulanTitle")}
           </h3>
         </motion.div>
 
@@ -140,9 +140,9 @@ export default function About() {
                     className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#007ab3] hover:text-[#00608e] transition-colors cursor-pointer relative z-20"
                   >
                     {isExpanded ? (
-                      <>Lebih sedikit <ChevronUp className="w-3.5 h-3.5" /></>
+                      <>{t("about.lebihSedikit")} <ChevronUp className="w-3.5 h-3.5" /></>
                     ) : (
-                      <>Selengkapnya <ChevronDown className="w-3.5 h-3.5" /></>
+                      <>{t("about.selengkapnya")} <ChevronDown className="w-3.5 h-3.5" /></>
                     )}
                   </button>
                 </div>
