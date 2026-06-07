@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Wallet, GraduationCap, BookOpen, Users, ShieldCheck, HandCoins, ChevronDown, ChevronUp } from "lucide-react";
+import { Wallet, GraduationCap, BookOpen, Users, ShieldCheck, HandCoins, ChevronDown, ChevronUp, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "@/utils/LanguageProvider";
 
@@ -47,6 +47,7 @@ export default function About() {
   const tentangKami = ad.tentangKami || t("about.tentangKami");
   const desc1 = ad.desc1 || t("about.desc1");
   const desc2 = ad.desc2 || t("about.desc2");
+  const aboutImage = ad.aboutImage || "";
   const stats1Num = ad.stats1Num || "500+";
   const stats1Label = ad.stats1Label || t("about.stats1");
   const stats2Num = ad.stats2Num || "10+";
@@ -87,34 +88,55 @@ export default function About() {
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           variants={container}
-          className="flex flex-col lg:flex-row gap-10 lg:gap-16 mb-16 lg:mb-24"
+          className="flex flex-col lg:flex-row gap-10 lg:gap-16 mb-12"
         >
-          <motion.div variants={fadeUp} className="lg:w-1/2">
+          <motion.div variants={fadeUp} className="lg:w-1/2 flex flex-col justify-center">
             <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
               LPK Bojonegoro Mendunia
             </h3>
-            <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
+            <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
               {desc2}
             </p>
           </motion.div>
           <motion.div variants={fadeUp} className="lg:w-1/2">
-            <div className="grid grid-cols-3 gap-4 sm:gap-6">
-              {[
-                { num: stats1Num, label: stats1Label },
-                { num: stats2Num, label: stats2Label },
-                { num: stats3Num, label: stats3Label },
-              ].map(({ num, label }) => (
-                <motion.div
-                  key={label}
-                  variants={scaleIn}
-                  className="bg-gradient-to-br from-[#007ab3]/5 to-[#007ab3]/10 border border-[#007ab3]/10 rounded-xl px-3 py-5 sm:py-6 text-center flex flex-col items-center justify-center transition-all hover:shadow-md hover:-translate-y-0.5"
-                >
-                  <div className="text-2xl sm:text-3xl font-black text-[#007ab3] mb-1">{num}</div>
-                  <div className="text-[11px] sm:text-sm text-slate-600 font-medium leading-tight">{label}</div>
-                </motion.div>
-              ))}
-            </div>
+            {aboutImage ? (
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[#007ab3]/10">
+                <img src={aboutImage} alt="Tentang Kami" className="w-full h-full object-cover" />
+              </div>
+            ) : (
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-[#007ab3]/10 via-[#007ab3]/5 to-slate-100 border border-[#007ab3]/10 flex items-center justify-center">
+                <div className="relative z-10 text-center px-6">
+                  <div className="w-20 h-20 mx-auto rounded-2xl bg-[#007ab3]/10 flex items-center justify-center mb-4">
+                    <Globe className="w-10 h-10 text-[#007ab3]" />
+                  </div>
+                  <p className="text-slate-400 text-sm font-medium">Ilustrasi</p>
+                </div>
+              </div>
+            )}
           </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={container}
+          className="grid grid-cols-3 gap-4 sm:gap-6 mb-16 lg:mb-24"
+        >
+          {[
+            { num: stats1Num, label: stats1Label },
+            { num: stats2Num, label: stats2Label },
+            { num: stats3Num, label: stats3Label },
+          ].map(({ num, label }) => (
+            <motion.div
+              key={label}
+              variants={scaleIn}
+              className="bg-white border border-slate-200 rounded-xl px-3 py-5 sm:py-7 text-center flex flex-col items-center justify-center transition-all hover:shadow-lg hover:-translate-y-1 hover:border-[#007ab3]/20"
+            >
+              <div className="text-2xl sm:text-4xl font-black text-[#007ab3] mb-1">{num}</div>
+              <div className="text-[11px] sm:text-sm text-slate-600 font-medium leading-tight">{label}</div>
+            </motion.div>
+          ))}
         </motion.div>
 
         <motion.div

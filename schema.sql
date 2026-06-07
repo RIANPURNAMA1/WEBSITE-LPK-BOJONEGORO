@@ -36,3 +36,14 @@ CREATE TABLE IF NOT EXISTS about_content (
 ALTER TABLE about_content MODIFY keunggulan_cards TEXT NOT NULL DEFAULT '[]';
 
 INSERT INTO about_content (id) VALUES (1) ON DUPLICATE KEY UPDATE id=id;
+
+CREATE TABLE IF NOT EXISTS program_content (
+  id INT PRIMARY KEY DEFAULT 1,
+  title VARCHAR(255) NOT NULL DEFAULT 'Program mendunia.id',
+  subtitle VARCHAR(255) NOT NULL DEFAULT 'Ada Kelas Apa saja?',
+  cta VARCHAR(100) NOT NULL DEFAULT 'Info Selengkapnya',
+  cards TEXT NOT NULL DEFAULT '[]',
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO program_content (id) VALUES (1) ON DUPLICATE KEY UPDATE id=id;

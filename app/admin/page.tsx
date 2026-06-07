@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Save, Eye, RotateCcw, LayoutDashboard, BookOpen, PenSquare, Image, Phone, LogOut, Plus, Trash2 } from "lucide-react";
+import { Save, Eye, RotateCcw, LayoutDashboard, BookOpen, PenSquare, Image, Phone, LogOut, Plus, Trash2, ChevronUp, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -148,6 +148,7 @@ type AboutData = {
   tentangKami: string;
   desc1: string;
   desc2: string;
+  aboutImage: string;
   stats1Num: string;
   stats1Label: string;
   stats2Num: string;
@@ -164,6 +165,7 @@ const defaultAbout: AboutData = {
   tentangKami: "Tentang Kami",
   desc1: "",
   desc2: "",
+  aboutImage: "",
   stats1Num: "500+",
   stats1Label: "Alumni Berangkat",
   stats2Num: "10+",
@@ -281,13 +283,48 @@ function AboutEditor() {
           <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-4">Deskripsi</h3>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-slate-600 mb-1.5">Paragraf 1</label>
+              <label className="block text-sm font-semibold text-slate-600 mb-1.5">Paragraf 1 (subtitle)</label>
               <textarea value={about.desc1} onChange={(e) => setAbout({...about, desc1: e.target.value})} rows={3} className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#007ab3]/20 focus:border-[#007ab3] resize-none" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-600 mb-1.5">Paragraf 2</label>
+              <label className="block text-sm font-semibold text-slate-600 mb-1.5">Paragraf 2 (deskripsi utama)</label>
               <textarea value={about.desc2} onChange={(e) => setAbout({...about, desc2: e.target.value})} rows={3} className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#007ab3]/20 focus:border-[#007ab3] resize-none" />
             </div>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-100 pt-6">
+          <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-4">Gambar</h3>
+          <div className="space-y-3">
+            <label className="block text-sm font-semibold text-slate-600 mb-1.5">Upload Gambar</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
+                const form = new FormData();
+                form.append("file", file);
+                try {
+                  const res = await fetch("/api/upload", { method: "POST", body: form });
+                  const data = await res.json();
+                  if (data.url) setAbout({...about, aboutImage: data.url});
+                } catch {}
+              }}
+              className="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#007ab3]/10 file:text-[#007ab3] hover:file:bg-[#007ab3]/20 file:cursor-pointer cursor-pointer"
+            />
+            {about.aboutImage && (
+              <div className="flex items-center gap-3 mt-2">
+                <img src={about.aboutImage} alt="Preview" className="w-20 h-16 object-cover rounded-lg border border-slate-200" />
+                <button
+                  onClick={() => setAbout({...about, aboutImage: ""})}
+                  className="text-xs text-red-500 hover:text-red-700 font-medium cursor-pointer"
+                >
+                  Hapus
+                </button>
+              </div>
+            )}
+            <p className="text-xs text-slate-400">Kosongkan untuk menggunakan placeholder default</p>
           </div>
         </div>
 
@@ -347,6 +384,233 @@ function AboutEditor() {
                   <div>
                     <label className="block text-xs font-semibold text-slate-500 mb-1">Deskripsi</label>
                     <input type="text" value={card.desc} onChange={(e) => updateCard(i, "desc", e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#007ab3]/20 focus:border-[#007ab3]" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProgramEditor() {
+  const [data, setData] = useState<any>({
+    title: "Program mendunia.id",
+    subtitle: "Ada Kelas Apa saja?",
+    cta: "Info Selengkapnya",
+    cards: [],
+  });
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [msg, setMsg] = useState("");
+
+  useEffect(() => {
+    fetch("/api/programs")
+      .then((r) => r.json())
+      .then((d) => {
+        if (d && !d.error) setData(d);
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
+  async function handleSave() {
+    setSaving(true);
+    setMsg("");
+    try {
+      const res = await fetch("/api/programs", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        setMsg("Berhasil disimpan!");
+        setTimeout(() => setMsg(""), 3000);
+      } else {
+        setMsg("Gagal menyimpan");
+      }
+    } catch {
+      setMsg("Error koneksi");
+    }
+    setSaving(false);
+  }
+
+  function addCard() {
+    setData({
+      ...data,
+      cards: [
+        ...data.cards,
+        {
+          id: `card-${Date.now()}`,
+          title: "",
+          desc: "",
+          cocok: "",
+          features: [""],
+          image: "",
+        },
+      ],
+    });
+  }
+
+  function removeCard(i: number) {
+    const cards = data.cards.filter((_: any, idx: number) => idx !== i);
+    setData({ ...data, cards });
+  }
+
+  function updateCard(i: number, field: string, val: any) {
+    const cards = [...data.cards];
+    cards[i] = { ...cards[i], [field]: val };
+    setData({ ...data, cards });
+  }
+
+  function addFeature(cardIdx: number) {
+    const cards = [...data.cards];
+    cards[cardIdx].features = [...(cards[cardIdx].features || []), ""];
+    setData({ ...data, cards });
+  }
+
+  function updateFeature(cardIdx: number, featIdx: number, val: string) {
+    const cards = [...data.cards];
+    cards[cardIdx].features[featIdx] = val;
+    setData({ ...data, cards });
+  }
+
+  function removeFeature(cardIdx: number, featIdx: number) {
+    const cards = [...data.cards];
+    cards[cardIdx].features = cards[cardIdx].features.filter((_: any, i: number) => i !== featIdx);
+    setData({ ...data, cards });
+  }
+
+  function moveCard(i: number, dir: "up" | "down") {
+    const cards = [...data.cards];
+    const j = dir === "up" ? i - 1 : i + 1;
+    if (j < 0 || j >= cards.length) return;
+    [cards[i], cards[j]] = [cards[j], cards[i]];
+    setData({ ...data, cards });
+  }
+
+  async function uploadImage(cardIdx: number, file: File) {
+    const form = new FormData();
+    form.append("file", file);
+    try {
+      const res = await fetch("/api/upload", { method: "POST", body: form });
+      const d = await res.json();
+      if (d.url) updateCard(cardIdx, "image", d.url);
+    } catch {}
+  }
+
+  if (loading) return <div className="text-sm text-slate-400 py-8 text-center">Memuat...</div>;
+
+  return (
+    <div className="space-y-5">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-xl font-bold text-slate-800">Program</h2>
+          <p className="text-sm text-slate-400 mt-0.5">Kelola program kelas</p>
+        </div>
+        <div className="flex gap-2">
+          <button onClick={handleSave} disabled={saving} className="flex items-center gap-1.5 px-4 py-2 bg-[#007ab3] hover:bg-[#00608e] text-white text-sm font-semibold rounded-lg transition-all disabled:opacity-50 cursor-pointer">
+            <Save className="w-3.5 h-3.5" /> {saving ? "Menyimpan..." : "Simpan"}
+          </button>
+        </div>
+      </div>
+
+      {msg && (
+        <div className={`px-4 py-2.5 rounded-lg text-sm font-medium ${
+          msg === "Berhasil disimpan!" ? "bg-green-50 text-green-700 border border-green-200" : "bg-red-50 text-red-600 border border-red-200"
+        }`}>
+          {msg}
+        </div>
+      )}
+
+      <div className="bg-white border border-slate-200 rounded-xl p-6 space-y-6">
+        <div>
+          <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-4">Header</h3>
+          <div className="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm font-semibold text-slate-600 mb-1.5">Badge</label>
+              <input type="text" value={data.title} onChange={(e) => setData({...data, title: e.target.value})} className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#007ab3]/20 focus:border-[#007ab3]" />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-slate-600 mb-1.5">Judul</label>
+              <input type="text" value={data.subtitle} onChange={(e) => setData({...data, subtitle: e.target.value})} className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#007ab3]/20 focus:border-[#007ab3]" />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-slate-600 mb-1.5">Tombol CTA</label>
+              <input type="text" value={data.cta} onChange={(e) => setData({...data, cta: e.target.value})} className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#007ab3]/20 focus:border-[#007ab3]" />
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-100 pt-6">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider">Card Program</h3>
+            <button onClick={addCard} className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-[#007ab3] hover:text-white border border-[#007ab3] hover:bg-[#007ab3] rounded-lg transition-all cursor-pointer">
+              <Plus className="w-3.5 h-3.5" /> Tambah Card
+            </button>
+          </div>
+          <div className="space-y-6">
+            {data.cards.map((card: any, i: number) => (
+              <div key={card.id || i} className="p-5 bg-slate-50 rounded-xl border border-slate-200">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-slate-400 uppercase">Card {i + 1}</span>
+                    <button onClick={() => moveCard(i, "up")} disabled={i === 0} className="p-1 text-slate-400 hover:text-slate-600 disabled:opacity-30 cursor-pointer">
+                      <ChevronUp className="w-4 h-4" />
+                    </button>
+                    <button onClick={() => moveCard(i, "down")} disabled={i === data.cards.length - 1} className="p-1 text-slate-400 hover:text-slate-600 disabled:opacity-30 cursor-pointer">
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <button onClick={() => removeCard(i)} className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all cursor-pointer">
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
+                <div className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 mb-1">Judul</label>
+                      <input type="text" value={card.title} onChange={(e) => updateCard(i, "title", e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#007ab3]/20 focus:border-[#007ab3]" />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-500 mb-1">Gambar</label>
+                      <input type="file" accept="image/*" onChange={async (e) => {
+                        const file = e.target.files?.[0];
+                        if (file) await uploadImage(i, file);
+                      }} className="w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-[#007ab3]/10 file:text-[#007ab3] hover:file:bg-[#007ab3]/20 file:cursor-pointer cursor-pointer" />
+                      {card.image && (
+                        <div className="flex items-center gap-2 mt-1.5">
+                          <img src={card.image} alt="" className="w-10 h-10 object-cover rounded border border-slate-200" />
+                          <button onClick={() => updateCard(i, "image", "")} className="text-[11px] text-red-500 hover:text-red-700 font-medium cursor-pointer">Hapus</button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-500 mb-1">Deskripsi</label>
+                    <textarea rows={2} value={card.desc} onChange={(e) => updateCard(i, "desc", e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#007ab3]/20 focus:border-[#007ab3] resize-none" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-500 mb-1">Cocok untuk</label>
+                    <textarea rows={2} value={card.cocok} onChange={(e) => updateCard(i, "cocok", e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#007ab3]/20 focus:border-[#007ab3] resize-none" />
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <label className="block text-xs font-semibold text-slate-500">Fitur</label>
+                      <button onClick={() => addFeature(i)} className="text-xs text-[#007ab3] hover:text-[#00608e] font-medium cursor-pointer">+ Tambah Fitur</button>
+                    </div>
+                    <div className="space-y-2">
+                      {(card.features || []).map((feat: string, fi: number) => (
+                        <div key={fi} className="flex items-center gap-2">
+                          <input type="text" value={feat} onChange={(e) => updateFeature(i, fi, e.target.value)} className="flex-1 px-3 py-1.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#007ab3]/20 focus:border-[#007ab3]" />
+                          <button onClick={() => removeFeature(i, fi)} className="p-1 text-red-400 hover:text-red-600 cursor-pointer">
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -430,14 +694,7 @@ export default function AdminPage() {
             )}
             {active === "hero" && <HeroEditor />}
             {active === "about" && <AboutEditor />}
-            {active === "programs" && (
-              <div className="space-y-5">
-                <div>
-                  <h2 className="text-xl font-bold text-slate-800">Program</h2>
-                  <p className="text-sm text-slate-400 mt-0.5">Halaman ini masih dalam pengembangan</p>
-                </div>
-              </div>
-            )}
+            {active === "programs" && <ProgramEditor />}
             {active === "contact" && (
               <div className="space-y-5">
                 <div>

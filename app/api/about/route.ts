@@ -19,6 +19,7 @@ export async function GET() {
         tentangKami: "Tentang Kami",
         desc1: "",
         desc2: "",
+        aboutImage: "",
         stats1Num: "500+",
         stats1Label: "Alumni Berangkat",
         stats2Num: "10+",
@@ -36,6 +37,7 @@ export async function GET() {
       tentangKami: r.tentang_kami,
       desc1: r.desc1,
       desc2: r.desc2,
+      aboutImage: r.about_image || "",
       stats1Num: r.stats1_num,
       stats1Label: r.stats1_label,
       stats2Num: r.stats2_num,
@@ -57,11 +59,11 @@ export async function PUT(request: Request) {
     const cards = JSON.stringify(body.keunggulanCards || defaultCards);
 
     await query(
-      `INSERT INTO about_content (id, siapa_kami, tentang_kami, desc1, desc2, stats1_num, stats1_label, stats2_num, stats2_label, stats3_num, stats3_label, keunggulan_badge, keunggulan_title, keunggulan_cards)
-       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `INSERT INTO about_content (id, siapa_kami, tentang_kami, desc1, desc2, about_image, stats1_num, stats1_label, stats2_num, stats2_label, stats3_num, stats3_label, keunggulan_badge, keunggulan_title, keunggulan_cards)
+       VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
        ON DUPLICATE KEY UPDATE
          siapa_kami=VALUES(siapa_kami), tentang_kami=VALUES(tentang_kami),
-         desc1=VALUES(desc1), desc2=VALUES(desc2),
+         desc1=VALUES(desc1), desc2=VALUES(desc2), about_image=VALUES(about_image),
          stats1_num=VALUES(stats1_num), stats1_label=VALUES(stats1_label),
          stats2_num=VALUES(stats2_num), stats2_label=VALUES(stats2_label),
          stats3_num=VALUES(stats3_num), stats3_label=VALUES(stats3_label),
@@ -72,6 +74,7 @@ export async function PUT(request: Request) {
         body.tentangKami || "Tentang Kami",
         body.desc1 || "",
         body.desc2 || "",
+        body.aboutImage || "",
         body.stats1Num || "500+",
         body.stats1Label || "Alumni Berangkat",
         body.stats2Num || "10+",

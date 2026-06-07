@@ -3,45 +3,15 @@ import { X, CheckCircle2, Send } from "lucide-react";
 import { useRegister } from "@/components/RegisterModal";
 import { useTranslation } from "@/utils/LanguageProvider";
 
-function getPrograms(t: (key: string) => string) {
-  return [
-    {
-      title: t("programs.jepang"),
-      desc: t("programs.jepangDesc"),
-      cocok: t("programs.jepangCocok"),
-      features: [
-        t("programs.jepangFitur1"),
-        t("programs.jepangFitur2"),
-        t("programs.jepangFitur3"),
-        t("programs.jepangFitur4"),
-        t("programs.jepangFitur5"),
-      ],
-    },
-    {
-      title: t("programs.korea"),
-      desc: t("programs.koreaDesc"),
-      cocok: t("programs.koreaCocok"),
-      features: [
-        t("programs.koreaFitur1"),
-        t("programs.koreaFitur2"),
-        t("programs.koreaFitur3"),
-        t("programs.koreaFitur4"),
-        t("programs.koreaFitur5"),
-      ],
-    },
-  ];
-}
-
 export default function ProgramDetail({
-  idx,
+  program,
   onClose,
 }: {
-  idx: number;
+  program: any;
   onClose: () => void;
 }) {
   const { t } = useTranslation();
   const { open: openRegister } = useRegister();
-  const program = getPrograms(t)[idx];
 
   const handleDaftar = () => {
     onClose();
@@ -74,7 +44,7 @@ export default function ProgramDetail({
           <div className="border-t border-slate-100 pt-5">
             <p className="text-[13px] font-semibold text-slate-900 mb-3">{t("programs.fiturProgram")}</p>
             <div className="space-y-3">
-              {program.features.map((feature, i) => (
+              {(program.features || []).map((feature: string, i: number) => (
                 <div key={i} className="flex items-start gap-2 text-sm text-slate-600">
                   <CheckCircle2 className="w-4 h-4 text-[#007ab3] shrink-0 mt-0.5" />
                   <span className="leading-tight">{feature}</span>

@@ -1,9 +1,6 @@
 "use client";
-import { useState } from "react";
-import {
-  CheckCircle2,
-  ArrowRight,
-} from "lucide-react";
+import { useState, useEffect } from "react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ProgramDetail from "@/components/ProgramDetail";
 import Image from "next/image";
@@ -19,43 +16,26 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
-function getPrograms(t: (key: string) => string) {
-  return [
-    {
-      idx: 0,
-      image: "/class-japan.png",
-      title: t("programs.jepang"),
-      desc: t("programs.jepangDesc"),
-      cocok: t("programs.jepangCocok"),
-      features: [
-        t("programs.jepangFitur1"),
-        t("programs.jepangFitur2"),
-        t("programs.jepangFitur3"),
-        t("programs.jepangFitur4"),
-        t("programs.jepangFitur5"),
-      ],
-    },
-    {
-      idx: 1,
-      image: "/class-korea.png",
-      title: t("programs.korea"),
-      desc: t("programs.koreaDesc"),
-      cocok: t("programs.koreaCocok"),
-      features: [
-        t("programs.koreaFitur1"),
-        t("programs.koreaFitur2"),
-        t("programs.koreaFitur3"),
-        t("programs.koreaFitur4"),
-        t("programs.koreaFitur5"),
-      ],
-    },
-  ];
-}
-
 export default function Programs() {
   const { t } = useTranslation();
   const [selected, setSelected] = useState<number | null>(null);
-  const programsData = getPrograms(t);
+  const [programData, setProgramData] = useState<Record<string, any> | null>(null);
+
+  useEffect(() => {
+    fetch("/api/programs")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data && !data.error) setProgramData(data);
+      })
+      .catch(() => {});
+  }, []);
+
+  const pd = programData ?? {};
+  const title = pd.title || t("programs.title");
+  const subtitle = pd.subtitle || t("programs.subtitle");
+  const cta = pd.cta || t("programs.cta");
+  const cards: any[] = pd.cards || [];
+
   return (
     <motion.section
       id="program"
@@ -64,25 +44,25 @@ export default function Programs() {
       viewport={{ once: true, margin: "-80px" }}
       className="py-16 md:py-24 bg-white"
     >
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-8">
         <motion.div variants={fadeUp} className="text-center mb-12 md:mb-16">
           <p className="text-[#007ab3] font-semibold text-xs sm:text-sm uppercase tracking-widest mb-2">
-            {t("programs.title")}
+            {title}
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-            {t("programs.subtitle")}
+            {subtitle}
           </h2>
         </motion.div>
-        <motion.div variants={container} className="grid md:grid-cols-2 gap-4">
-          {programsData.map((program) => (
+        <motion.div variants={container} className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {cards.map((program: any, idx: number) => (
             <motion.div
-              key={program.idx}
+              key={program.id || idx}
               variants={fadeUp}
               className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group w-full"
             >
               <div className="relative w-[200px] h-[200px] rounded-xl overflow-hidden mb-5 mx-auto">
                 <Image
-                  src={program.image}
+                  src={program.image || "/globe.svg"}
                   alt={program.title}
                   fill
                   className="object-cover"
@@ -98,7 +78,7 @@ export default function Programs() {
                 {program.cocok}
               </p>
               <div className="space-y-3 mb-8">
-                {program.features.map((feature, i) => (
+                {(program.features || []).map((feature: string, i: number) => (
                   <div key={i} className="flex items-start gap-3 text-sm text-slate-600">
                     <CheckCircle2 className="w-4 h-4 text-[#007ab3] shrink-0 mt-0.5" />
                     <span className="leading-tight">{feature}</span>
@@ -106,10 +86,10 @@ export default function Programs() {
                 ))}
               </div>
               <button
-                onClick={() => setSelected(program.idx)}
+                onClick={() => setSelected(idx)}
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#007ab3] hover:bg-[#00608e] text-white font-semibold text-sm rounded-lg transition-all active:scale-95 cursor-pointer"
               >
-                {t("programs.cta")}
+                {cta}
                 <ArrowRight className="w-4 h-4" />
               </button>
             </motion.div>
@@ -117,7 +97,10 @@ export default function Programs() {
         </motion.div>
       </div>
       {selected !== null && (
-        <ProgramDetail idx={selected} onClose={() => setSelected(null)} />
+        <ProgramDetail
+          program={cards[selected]}
+          onClose={() => setSelected(null)}
+        />
       )}
     </motion.section>
   );
