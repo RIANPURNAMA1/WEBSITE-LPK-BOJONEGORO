@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Wallet, GraduationCap, BookOpen, Users, ShieldCheck, HandCoins, ChevronDown, ChevronUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "@/utils/LanguageProvider";
@@ -31,6 +31,31 @@ const scaleIn = {
 export default function About() {
   const { t } = useTranslation();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const [aboutData, setAboutData] = useState<Record<string, any> | null>(null);
+
+  useEffect(() => {
+    fetch("/api/about")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data && !data.error) setAboutData(data);
+      })
+      .catch(() => {});
+  }, []);
+
+  const ad = aboutData ?? {};
+  const siapaKami = ad.siapaKami || t("about.siapaKami");
+  const tentangKami = ad.tentangKami || t("about.tentangKami");
+  const desc1 = ad.desc1 || t("about.desc1");
+  const desc2 = ad.desc2 || t("about.desc2");
+  const stats1Num = ad.stats1Num || "500+";
+  const stats1Label = ad.stats1Label || t("about.stats1");
+  const stats2Num = ad.stats2Num || "10+";
+  const stats2Label = ad.stats2Label || t("about.stats2");
+  const stats3Num = ad.stats3Num || "50+";
+  const stats3Label = ad.stats3Label || t("about.stats3");
+  const keunggulanBadge = ad.keunggulanBadge || t("about.keunggulan");
+  const keunggulanTitle = ad.keunggulanTitle || t("about.keunggulanTitle");
+  const cards = ad.keunggulanCards as { key: string; title: string; desc: string }[] | undefined;
 
   const toggleExpand = (key: string) => {
     setExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -47,13 +72,13 @@ export default function About() {
           className="text-center mb-12 md:mb-16"
         >
           <p className="text-[#007ab3] font-semibold text-xs sm:text-sm uppercase tracking-widest mb-2">
-            {t("about.siapaKami")}
+            {siapaKami}
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-            {t("about.tentangKami")}
+            {tentangKami}
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base px-2">
-            {t("about.desc1")}
+            {desc1}
           </p>
         </motion.div>
 
@@ -69,15 +94,15 @@ export default function About() {
               LPK Bojonegoro Mendunia
             </h3>
             <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
-              {t("about.desc2")}
+              {desc2}
             </p>
           </motion.div>
           <motion.div variants={fadeUp} className="lg:w-1/2">
             <div className="grid grid-cols-3 gap-4 sm:gap-6">
               {[
-                { num: "500+", label: t("about.stats1") },
-                { num: "10+", label: t("about.stats2") },
-                { num: "50+", label: t("about.stats3") },
+                { num: stats1Num, label: stats1Label },
+                { num: stats2Num, label: stats2Label },
+                { num: stats3Num, label: stats3Label },
               ].map(({ num, label }) => (
                 <motion.div
                   key={label}
@@ -100,10 +125,10 @@ export default function About() {
           className="text-center mb-10 md:mb-12"
         >
           <p className="text-[#007ab3] font-semibold text-xs sm:text-sm uppercase tracking-widest mb-2">
-            {t("about.keunggulan")}
+            {keunggulanBadge}
           </p>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            {t("about.keunggulanTitle")}
+            {keunggulanTitle}
           </h3>
         </motion.div>
 
@@ -116,6 +141,9 @@ export default function About() {
         >
           {keunggulanKeys.map(({ icon: Icon, key }) => {
             const isExpanded = expanded[key];
+            const card = cards?.find((c: any) => c.key === key);
+            const title = card?.title || t(`about.keunggulan.${key}.title`);
+            const desc = card?.desc || t(`about.keunggulan.${key}.desc`);
             return (
               <motion.div
                 key={key}
@@ -128,11 +156,11 @@ export default function About() {
                     <Icon className="w-6 h-6 text-[#007ab3] group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h4 className="font-bold text-slate-900 text-base mb-2">
-                    {t(`about.keunggulan.${key}.title`)}
+                    {title}
                   </h4>
                   <div className="text-slate-500 text-sm leading-relaxed">
                     <span className={isExpanded ? "" : "line-clamp-2"}>
-                      {t(`about.keunggulan.${key}.desc`)}
+                      {desc}
                     </span>
                   </div>
                   <button
